@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanBright Solar & Window Cleaning</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #18324a; background: #f5f9fc; }
+    header { background: #0b6e99; color: white; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    header h1 { font-size: 1.35rem; }
+    nav a { color: white; text-decoration: none; margin-left: 15px; }
+    .hero { padding: 70px 8%; background: linear-gradient(120deg, #dff5ff, #ffffff); display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
+    .hero h2 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 18px; }
+    .hero p { margin-bottom: 25px; }
+    .button { display: inline-block; background: #f5a623; color: #142b3b; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
+    .hero-image { min-height: 280px; border-radius: 18px; background: linear-gradient(135deg, #80c9ed, #d8f4ff); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    section { padding: 55px 8%; }
+    section h2 { text-align: center; margin-bottom: 25px; }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card { background: white; padding: 25px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
+    .price { color: #0b6e99; font-size: 1.6rem; font-weight: bold; margin: 10px 0; }
+    form { max-width: 650px; margin: auto; background: white; padding: 28px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
+    label { display: block; margin-top: 14px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #c4d4df; border-radius: 7px; font: inherit; }
+    textarea { min-height: 100px; }
+    form .button { margin-top: 20px; width: 100%; }
+    .note { text-align: center; margin-top: 15px; color: #536b7c; font-size: .9rem; }
+    footer { background: #18324a; color: white; text-align: center; padding: 25px 8%; }
+    @media (max-width: 700px) {
+      .hero, .cards { grid-template-columns: 1fr; }
+      nav a { margin-left: 8px; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CleanBright Cleaning</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#booking">Book</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h2>Clean panels. Clear windows. Happy customers.</h2>
+        <p>Affordable solar panel and window cleaning in KwaThema and surrounding areas.</p>
+        <a class="button" href="#booking">Request a Booking</a>
+      </div>
+      <div class="hero-image" aria-label="Solar panel and window cleaning illustration">☀️ 🧽</div>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Solar Panel Cleaning</h3>
+          <p>Remove dust and dirt from your solar panels.</p>
+          <p class="price">R60 per panel</p>
+        </article>
+        <article class="card">
+          <h3>Window Cleaning</h3>
+          <p>Make your windows cleaner and brighter.</p>
+          <p class="price">R15 per window</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="booking">
+      <h2>Request a Booking</h2>
+      <form id="bookingForm">
+        <label for="name">Full name</label>
+        <input id="name" name="name" required>
+
+        <label for="phone">Phone / WhatsApp number</label>
+        <input id="phone" name="phone" type="tel" required>
+
+        <label for="area">Area</label>
+        <input id="area" name="area" placeholder="Example: KwaThema" required>
+
+        <label for="service">Choose a service</label>
+        <select id="service" name="service" required>
+          <option value="">Select service</option>
+          <option>Solar panel cleaning - R60 per panel</option>
+          <option>Window cleaning - R15 per window</option>
+          <option>Solar panel and window cleaning</option>
+        </select>
+
+        <label for="quantity">Number of panels/windows</label>
+        <input id="quantity" name="quantity" type="number" min="1" required>
+
+        <label for="date">Preferred date</label>
+        <input id="date" name="date" type="date" required>
+
+        <label for="message">Extra details</label>
+        <textarea id="message" name="message" placeholder="Tell us anything important about the job"></textarea>
+
+        <button class="button" type="submit">Send Booking Request</button>
+        <p class="note">This demo opens WhatsApp. Replace the number in the code with your business number.</p>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p style="text-align:center;">WhatsApp: Add your business number here</p>
+      <p style="text-align:center;">Service area: KwaThema and nearby communities</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CleanBright Cleaning. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const businessWhatsAppNumber = "27000000000"; // Replace with your number, e.g. 27821234567
+      const form = new FormData(event.target);
+
+      const message =
+        "New booking request%0A" +
+        "Name: " + encodeURIComponent(form.get("name")) + "%0A" +
+        "Phone: " + encodeURIComponent(form.get("phone")) + "%0A" +
+        "Area: " + encodeURIComponent(form.get("area")) + "%0A" +
+        "Service: " + encodeURIComponent(form.get("service")) + "%0A" +
+        "Quantity: " + encodeURIComponent(form.get("quantity")) + "%0A" +
+        "Preferred date: " + encodeURIComponent(form.get("date")) + "%0A" +
+        "Details: " + encodeURIComponent(form.get("message") || "None");
+
+      window.open("https://wa.me/" + businessWhatsAppNumber + "?text=" + message, "_blank");
+    });
+  </script>
+</body>
+</html>
