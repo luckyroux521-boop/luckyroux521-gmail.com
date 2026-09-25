@@ -271,22 +271,27 @@ html<!DOCTYPE html>
     </footer>
 
     <script>
+      <script>
         document.getElementById("bookingForm").addEventListener("submit", function(event) {
             event.preventDefault();
             
-            // Your exact confirmed business number setup
             const businessWhatsAppNumber = "27829827195"; 
-            const form = new FormData(event.target);
             
-            const area = form.get("area");
-            const service = form.get("service");
-            const quantity = form.get("quantity");
-            const date = form.get("date");
-            const message = form.get("message");
+            const area = document.getElementById("area").value;
+            const service = document.getElementById("service").value;
+            const quantity = document.getElementById("quantity").value;
+            const date = document.getElementById("date").value;
+            const message = document.getElementById("message").value;
 
-            // Format message neatly for WhatsApp reading
             const textMessage = `Hello CleanBright! I would like to request a booking.%0A%0A` +
-                                `• *Service:* ${service}%0A` +
-                                `• *Count:* ${quantity}%0A` +
-                                `• *Location Area:* ${area}%0A` +
-                                `• *Preferred Date:* ${date}%0A` +
+                                `• *Service:* ${encodeURIComponent(service)}%0A` +
+                                `• *Count:* ${encodeURIComponent(quantity)}%0A` +
+                                `• *Location Area:* ${encodeURIComponent(area)}%0A` +
+                                `• *Preferred Date:* ${encodeURIComponent(date)}%0A` +
+                                `• *Additional Details:* ${encodeURIComponent(message)}`;
+
+            window.location.href = `https://wa.me{businessWhatsAppNumber}?text=${textMessage}`;
+        });
+    </script>
+</body>
+</html>  
