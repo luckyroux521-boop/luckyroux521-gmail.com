@@ -231,28 +231,11 @@ html<!DOCTYPE html>
             </div>
         </div>
 
-        <h2 class="section-title">Book an Appointment</h2>
+      <h2 class="section-title">Book an Appointment</h2>
         <section class="booking-section">
-            <form id="bookingForm">
+            <form action="https://wa.me" method="GET" target="_blank">
                 <label for="area">Your Area / Suburb</label>
-                <input id="area" name="area" type="text" placeholder="e.g. KwaThema" required>
-
-                <label for="service">Choose a Service</label>
-                <select id="service" name="service" required>
-                    <option value="Solar panel cleaning - R60 per panel">Solar Panel Cleaning (R60 / panel)</option>
-                    <option value="Window cleaning">Window Cleaning</option>
-                    <option value="Deep home cleaning">Deep Home Cleaning</option>
-                    <option value="Office & Workplace cleaning">Office & Workplace Cleaning</option>
-                </select>
-
-                <label for="quantity">Number of Panels / Windows</label>
-                <input id="quantity" name="quantity" type="number" min="1" placeholder="e.g. 8" required>
-
-                <label for="date">Preferred Service Date</label>
-                <input id="date" name="date" type="date" required>
-
-                <label for="message">Extra Instructions / Details</label>
-                <textarea id="message" name="message" rows="3" placeholder="Tell us anything else you would like us to know..."></textarea>
+                <input id="area" name="text" type="text" placeholder="e.g. KwaThema" required>
 
                 <button class="button" type="submit">Send Booking Request via WhatsApp</button>
             </form>
@@ -269,29 +252,5 @@ html<!DOCTYPE html>
     <footer>
         <p>&copy; 2026 CleanBright Cleaning. All rights reserved.</p>
     </footer>
-
-    <script>
-      <script>
-        document.getElementById("bookingForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            const businessWhatsAppNumber = "27829827195"; 
-            
-            const area = document.getElementById("area").value;
-            const service = document.getElementById("service").value;
-            const quantity = document.getElementById("quantity").value;
-            const date = document.getElementById("date").value;
-            const message = document.getElementById("message").value;
-
-            const textMessage = `Hello CleanBright! I would like to request a booking.%0A%0A` +
-                                `• *Service:* ${encodeURIComponent(service)}%0A` +
-                                `• *Count:* ${encodeURIComponent(quantity)}%0A` +
-                                `• *Location Area:* ${encodeURIComponent(area)}%0A` +
-                                `• *Preferred Date:* ${encodeURIComponent(date)}%0A` +
-                                `• *Additional Details:* ${encodeURIComponent(message)}`;
-
-            window.location.href = `https://wa.me{businessWhatsAppNumber}?text=${textMessage}`;
-        });
-    </script>
 </body>
-</html>  
+</html>
