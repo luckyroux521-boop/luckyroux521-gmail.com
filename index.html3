@@ -8,12 +8,14 @@ html<!DOCTYPE html>
     <meta name="keywords" content="window cleaning, solar panel cleaning, cleanbright, local cleaners">
     <style>
         :root {
-            --primary: #0066cc;     /* Deep Trust Blue */
-            --secondary: #00cc99;   /* Solar Aqua Accent */
-            --dark: #1e293b;        /* Professional Dark Slate */
-            --light: #f8fafc;       /* Clean Soft Background */
-            --white: #ffffff;
-        }
+    --primary: #0066cc;
+    --secondary: #00cc99;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;     /* Add this for typography text uniformity */
+    --border: #e2e8f0;   /* Add this for clean card dividers */
+}
 
         * {
             box-sizing: border-box;
@@ -230,16 +232,36 @@ html<!DOCTYPE html>
                 <p>Complete home, workplace, moving-related, or upholstery deep cleaning customized to fit your exact budget.</p>
             </div>
         </div>
-
-      <h2 class="section-title">Book an Appointment</h2>
         <section class="booking-section">
-            <form action="https://whatsapp.com" method="GET" target="_blank">
-                <label for="area">Your Area / Suburb</label>
-                <input id="area" name="text" type="text" placeholder="e.g. KwaThema" required>
+    <!-- Form action optimized for automatic WhatsApp text compilation -->
+    <form class="booking-form" action="https://whatsapp.com" method="GET" target="_blank" onsubmit="return validateBooking(event)">
+        <div class="form-group">
+            <label for="area">Your Area / Suburb</label>
+            <!-- pattern constraint prevents single-character entries -->
+            <input id="area" name="text" type="text" placeholder="e.g. KwaThema" minlength="3" pattern=".*\S.*" required>
+        </div>
+        <button class="button" type="submit">Send Booking Request via WhatsApp</button>
+    </form>
+</section>
 
-                <button class="button" type="submit">Send Booking Request via WhatsApp</button>
-            </form>
-        </section>
+<script>
+function validateBooking(event) {
+    const areaInput = document.getElementById('area');
+    const cleanedValue = areaInput.value.trim();
+    
+    if (cleanedValue === "") {
+        alert("Please enter a valid area or suburb name before submitting.");
+        event.preventDefault();
+        return false;
+    }
+    
+    // Automatically formats the text string sent directly into the user's WhatsApp input screen
+    areaInput.value = "Hello CleanBright, I would like to book a cleaning service for my property located in: " + cleanedValue;
+    return true;
+}
+</script>
+              
+     
 
         <section style="text-align: center; margin-bottom: 60px;">
             <h2 style="margin-bottom: 10px; color: var(--primary);">Contact Us Directly</h2>
