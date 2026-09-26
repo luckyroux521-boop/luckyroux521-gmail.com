@@ -233,7 +233,7 @@ html<!DOCTYPE html>
 
       <h2 class="section-title">Book an Appointment</h2>
         <section class="booking-section">
-            <form action="https://wa.me" method="GET" target="_blank">
+            <form action="https://whatsapp.com" method="GET" target="_blank">
                 <label for="area">Your Area / Suburb</label>
                 <input id="area" name="text" type="text" placeholder="e.g. KwaThema" required>
 
