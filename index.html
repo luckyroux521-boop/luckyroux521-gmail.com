@@ -3,143 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CleanBright Solar & Window Cleaning | Kwathema</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #18324a; background: #f5f9fc; }
-    header { background: #0b6e99; color: white; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-    header h1 { font-size: 1.35rem; }
-    nav a { color: white; text-decoration: none; margin-left: 15px; }
-    .hero { padding: 70px 8%; background: linear-gradient(120deg, #dff5ff, #ffffff); display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
-    .hero h2 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 18px; }
-    .hero p { margin-bottom: 25px; }
-    .button { display: inline-block; background: #f5a623; color: #142b3b; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
-    .hero-image { min-height: 280px; border-radius: 18px; background: url('solar.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
-    section { padding: 55px 8%; }
-    section h2 { text-align: center; margin-bottom: 25px; }
-    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .card { background: white; padding: 0 0 25px 0; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; overflow: hidden; }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card h3, .card p, .card span { padding: 0 25px; display: block; margin-top: 10px; }
-    .price { color: #0b6e99; font-size: 1.6rem; font-weight: bold; margin: 10px 0; }
-    form { max-width: 650px; margin: auto; background: white; padding: 28px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
-    label { display: block; margin-top: 14px; font-weight: bold; }
-    input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #c4d4df; border-radius: 7px; font: inherit; }
-    textarea { min-height: 100px; }
-    form .button { margin-top: 20px; width: 100%; }
-    .note { text-align: center; margin-top: 15px; color: #536b7c; font-size: .9rem; }
-    footer { background: #18324a; color: white; text-align: center; padding: 25px 8%; }
-    @media (max-width: 700px) {
-      .hero, .cards { grid-template-columns: 1fr; }
-      nav a { margin-left: 8px; font-size: .9rem; }
-    }
-  </style>
+  <meta name="description" content="BrightView Cleaning - solar panel and window cleaning services.">
+  <title>BrightView Cleaning | Solar & Window Cleaning</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>CleanBright Cleaning</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#booking">Book</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#home">☀️ BrightView</a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#prices">Prices</a>
+        <a href="#booking">Book</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div>
-        <h2>Clean panels. Clear windows. Happy customers.</h2>
-        <p>Affordable solar panel and window cleaning in KwaThema and surrounding areas.</p>
-        <a class="button" href="#booking">Request a Booking</a>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div>
+          <p class="tag">SOLAR PANEL & WINDOW CLEANING</p>
+          <h1>Keep your panels and windows <span>Bright & Clean.</span></h1>
+          <p class="hero-text">
+            Affordable cleaning for homes and small businesses. Clean solar panels can help
+            keep your system free from dust and dirt, while clean windows give your property a fresh look.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#booking">Book a Cleaning</a>
+            <a class="btn secondary" href="#prices">See Prices</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="sun">☀️</div>
+          <h2>BrightView Cleaning</h2>
+          <p>Solar panels • Windows • Reliable service</p>
+        </div>
       </div>
-      <div class="hero-image" aria-label="Solar panel and window cleaning illustration">☀️ 🧽</div>
     </section>
 
-    <section id="services">
-    <h2>Our Services</h2>
-    <div class="cards">
-        
-        <article class="card">
-            <img src="solar.jpg" alt="Solar panel cleaning service">
+    <section id="services" class="section">
+      <div class="container">
+        <p class="tag">OUR SERVICES</p>
+        <h2>What we clean</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">☀️</div>
             <h3>Solar Panel Cleaning</h3>
-            <p>Remove dust and dirt from your solar panels.</p>
-            <p class="price">R60 per panel</p>
-        </article>
-
-        <article class="card">
-            <img src="windows.jpg" alt="Professional window cleaning service">
+            <p>Remove dust and dirt from your solar panels so they stay clean and well maintained.</p>
+            <strong>R60 per panel</strong>
+          </article>
+          <article class="card">
+            <div class="icon">🪟</div>
             <h3>Window Cleaning</h3>
-            <p>Make your windows cleaner and brighter.</p>
-            <p class="price">R15 per window</p>
-        </article>
-
-    </div>
-</section>
-
-    <section id="booking">
-      <h2>Request a Booking</h2>
-      <form id="bookingForm">
-        <label for="name">Full name</label>
-        <input id="name" name="name" required>
-
-        <label for="phone">Phone / WhatsApp number</label>
-        <input id="phone" name="phone" type="tel" required>
-
-        <label for="area">Area</label>
-        <input id="area" name="area" placeholder="Example: KwaThema" required>
-
-        <label for="service">Choose a service</label>
-        <select id="service" name="service" required>
-          <option value="">Select service</option>
-          <option>Solar panel cleaning - R60 per panel</option>
-          <option>Window cleaning - R15 per window</option>
-          <option>Solar panel and window cleaning</option>
-        </select>
-
-        <label for="quantity">Number of panels/windows</label>
-        <input id="quantity" name="quantity" type="number" min="1" required>
-
-        <label for="date">Preferred date</label>
-        <input id="date" name="date" type="date" required>
-
-        <label for="message">Extra details</label>
-        <textarea id="message" name="message" placeholder="Tell us anything important about the job"></textarea>
-
-        <button class="button" type="submit">Send Booking Request</button>
-        <p class="note">This demo opens WhatsApp. Replace the number in the code with your business number.</p>
-      </form>
+            <p>Clean and fresh-looking windows for homes, offices and small businesses.</p>
+            <strong>R15 per window</strong>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p style="text-align:center;"> 0839827195</p>
-      <p style="text-align:center;">Service area: KwaThema and nearby communities</p>
+    <section id="prices" class="section light">
+      <div class="container">
+        <p class="tag">SIMPLE PRICING</p>
+        <h2>Our prices</h2>
+        <div class="price-grid">
+          <div class="price-box">
+            <h3>Solar Panels</h3>
+            <div class="price">R60</div>
+            <p>per panel</p>
+            <a class="btn primary" href="#booking">Book Solar Cleaning</a>
+          </div>
+          <div class="price-box">
+            <h3>Windows</h3>
+            <div class="price">R15</div>
+            <p>per window</p>
+            <a class="btn primary" href="#booking">Book Window Cleaning</a>
+          </div>
+        </div>
+        <p class="note">Final price can be confirmed after checking the number of panels/windows and the job requirements.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="tag">OUR WORK</p>
+        <h2>Photos</h2>
+        <p class="small">Replace these boxes with your own before-and-after photos.</p>
+        <div class="gallery">
+          <div class="photo">YOUR SOLAR PHOTO</div>
+          <div class="photo">YOUR WINDOW PHOTO</div>
+          <div class="photo">BEFORE & AFTER</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="section light">
+      <div class="container booking">
+        <div>
+          <p class="tag">BOOK A CLEANING</p>
+          <h2>Request a quote</h2>
+          <p>Fill in the form. The button will open WhatsApp with your booking details.</p>
+        </div>
+
+        <form id="bookingForm">
+          <label>Name
+            <input id="name" type="text" placeholder="Your name" required>
+          </label>
+          <label>Phone number
+            <input id="phone" type="tel" placeholder="Your phone number" required>
+          </label>
+          <label>Service
+            <select id="service" required>
+              <option value="">Choose a service</option>
+              <option>Solar panel cleaning</option>
+              <option>Window cleaning</option>
+              <option>Solar panels + windows</option>
+            </select>
+          </label>
+          <label>Number of panels
+            <input id="panels" type="number" min="0" value="0">
+          </label>
+          <label>Number of windows
+            <input id="windows" type="number" min="0" value="0">
+          </label>
+          <label>Preferred date
+            <input id="date" type="date">
+          </label>
+          <label>Message
+            <textarea id="message" rows="4" placeholder="Tell us anything important about the job"></textarea>
+          </label>
+          <button class="btn primary full" type="submit">Send Booking on WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <p class="tag">CONTACT</p>
+        <h2>Ready for a brighter view?</h2>
+        <p>Contact BrightView Cleaning to arrange your cleaning.</p>
+        <a class="btn primary" id="whatsappLink" href="#" target="_blank" rel="noopener">WhatsApp Us</a>
+        <p class="small">Replace the WhatsApp number in <strong>script.js</strong> with your business number.</p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 CleanBright Cleaning. All rights reserved.</p>
+    <div class="container">
+      <p>© 2026 BrightView Cleaning. Solar panel & window cleaning.</p>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById("bookingForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const businessWhatsAppNumber = "27839827195"; // Replace with your number, e.g. 27821234567
-      const form = new FormData(event.target);
-
-      const message =
-        "New booking request%0A" +
-        "Name: " + encodeURIComponent(form.get("name")) + "%0A" +
-        "Phone: " + encodeURIComponent(form.get("phone")) + "%0A" +
-        "Area: " + encodeURIComponent(form.get("area")) + "%0A" +
-        "Service: " + encodeURIComponent(form.get("service")) + "%0A" +
-        "Quantity: " + encodeURIComponent(form.get("quantity")) + "%0A" +
-        "Preferred date: " + encodeURIComponent(form.get("date")) + "%0A" +
-        "Details: " + encodeURIComponent(form.get("message") || "None");
-
-      window.open("https://wa.me/" + businessWhatsAppNumber + "?text=" + message, "_blank");
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
