@@ -14,11 +14,13 @@
     .hero h2 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 18px; }
     .hero p { margin-bottom: 25px; }
     .button { display: inline-block; background: #f5a623; color: #142b3b; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
-    .hero-image { min-height: 280px; border-radius: 18px; background: linear-gradient(135deg, #80c9ed, #d8f4ff); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .hero-image { min-height: 280px; border-radius: 18px; background: url('solar.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
     section { padding: 55px 8%; }
     section h2 { text-align: center; margin-bottom: 25px; }
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .card { background: white; padding: 25px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
+    .card { background: white; padding: 0 0 25px 0; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; overflow: hidden; }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3, .card p, .card span { padding: 0 25px; display: block; margin-top: 10px; }
     .price { color: #0b6e99; font-size: 1.6rem; font-weight: bold; margin: 10px 0; }
     form { max-width: 650px; margin: auto; background: white; padding: 28px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
     label { display: block; margin-top: 14px; font-weight: bold; }
