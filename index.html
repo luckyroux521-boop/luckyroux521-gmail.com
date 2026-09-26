@@ -1,5 +1,5 @@
-html<!DOCTYPE html>
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +8,21 @@ html<!DOCTYPE html>
     <meta name="keywords" content="window cleaning, solar panel cleaning, cleanbright, local cleaners">
     <style>
         :root {
-    --primary: #0066cc;
-    --secondary: #00cc99;
-    --dark: #1e293b;
-    --light: #f8fafc;
-    --white: #ffffff;
-    --gray: #64748b;     /* Add this for typography text uniformity */
-    --border: #e2e8f0;   /* Add this for clean card dividers */
-}
+            --primary: #0066cc;        /* Deep Trust Blue */
+            --secondary: #00cc99;      /* Solar Aqua Accent */
+            --dark: #1e293b;           /* Professional Dark Slate */
+            --light: #f8fafc;          /* Clean Soft Background */
+            --white: #ffffff;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
+            --shadow-btn: 0 4px 10px rgba(0, 66, 163, 0.2);
+            --transition: all 0.3s ease;
+        }
 
         * {
             box-sizing: border-box;
@@ -28,13 +35,14 @@ html<!DOCTYPE html>
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Premium Header & Navigation */
+        /* Header & Navigation */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -58,9 +66,22 @@ html<!DOCTYPE html>
             color: var(--secondary);
         }
 
-        /* Hero Showcase Section */
+        .location-badge {
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #f0f7ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Hero Showcase Section with Image Placeholder Banner */
         .hero {
-            background: linear-gradient(135deg, #0052a3 0%, #002244 100%);
+            background: linear-gradient(135deg, rgba(0, 82, 163, 0.95) 0%, rgba(0, 34, 68, 0.95) 100%), 
+                        url('https://unsplash.com') no-repeat center center/cover;
             color: var(--white);
             padding: 80px 20px;
             text-align: center;
@@ -71,121 +92,223 @@ html<!DOCTYPE html>
             font-size: 42px;
             margin-bottom: 15px;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
             font-size: 18px;
             max-width: 600px;
             margin: 0 auto 25px auto;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        /* Main Grid Wrapper */
+        /* Main Layout Container */
         .container {
             max-width: 1100px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            color: var(--primary);
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: var(--dark);
+            font-weight: 700;
         }
 
         /* Premium Service Display Cards */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
         .card {
             background-color: var(--white);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-md);
         }
 
         .card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 12px;
             color: var(--primary);
         }
 
         .price-badge {
             display: inline-block;
+            align-self: flex-start;
             background-color: #e0f2fe;
             color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 14px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 15px;
+            flex-grow: 1;
         }
 
         /* Modern Booking Form Layout */
         .booking-section {
             background-color: var(--white);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-md);
             max-width: 650px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 60px auto;
+            border: 1px solid var(--border);
         }
 
-        label {
-            display: block;
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .booking-form label {
             font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 14px;
+            font-size: 15px;
+            color: var(--dark);
         }
 
-        input, select, textarea {
+        .booking-form input[type="text"] {
             width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
             font-size: 16px;
-            background-color: #f8fafc;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            background-color: var(--light);
         }
 
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary);
+        .booking-form input[type="text"]:focus {
             outline: none;
+            border-color: var(--primary);
             background-color: var(--white);
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
         }
 
-        /* High-End Interactive Button */
+        /* Clickable Service Checklist Boxes */
+        .checklist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checklist-label {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 14px 16px;
+            background-color: var(--light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
+        }
+
+        .checklist-item:hover {
+            border-color: var(--primary);
+            background-color: #f0f7ff;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 14px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .checklist-item span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Active highlight for selected options */
+        .checklist-item.selected {
+            background-color: #e0f2fe;
+            border-color: var(--primary);
+        }
+
         .button {
             width: 100%;
             background: linear-gradient(to right, var(--primary), #0052a3);
             color: var(--white);
             padding: 16px;
             border: none;
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             font-weight: 700;
             font-size: 16px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 66, 163, 0.2);
-            transition: all 0.2s ease;
+            box-shadow: var(--shadow-btn);
+            transition: var(--transition);
+            text-align: center;
         }
 
         .button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 66, 163, 0.3);
+            background: linear-gradient(to right, #0052a3, #003366);
+        }
+
+        /* Direct Contact Section */
+        .contact-info-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 30px;
+            background-color: #f1f5f9;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-info-section h2 {
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .contact-phone {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .service-area-text {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
         }
 
         /* Professional Footer */
@@ -193,86 +316,36 @@ html<!DOCTYPE html>
             background-color: var(--dark);
             color: #94a3b8;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 6px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+            border-top: 3px solid var(--secondary);
         }
-    </style>
-</head>
-<body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">Clean<span>Bright</span></div>
-            <div style="font-weight: 600; color: var(--primary);">📍 KwaThema Area</div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h1>Spotless Windows. Efficient Solar.</h1>
-        <p>Premium local cleaning services built around reliability, top-tier quality, and affordable rates.</p>
-    </section>
-
-    <main class="container">
-        
-        <h2 class="section-title">Our Premium Services</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h3>Solar Panel Cleaning</h3>
-                <div class="price-badge">R60 per panel</div>
-                <p>Maximize your power efficiency. We remove dust, dirt, and bird drops carefully without scratching panels.</p>
-            </div>
-            <div class="card">
-                <h3>Window Cleaning</h3>
-                <div class="price-badge">Affordable Rates</div>
-                <p>Interior and exterior window cleaning that leaves your glass completely streak-free and perfectly clear.</p>
-            </div>
-            <div class="card">
-                <h3>Full General Clean</h3>
-                <div class="price-badge">Deep / Standard</div>
-                <p>Complete home, workplace, moving-related, or upholstery deep cleaning customized to fit your exact budget.</p>
-            </div>
-        </div>
-        <section class="booking-section">
-    <!-- Form action optimized for automatic WhatsApp text compilation -->
-    <form class="booking-form" action="https://whatsapp.com" method="GET" target="_blank" onsubmit="return validateBooking(event)">
-        <div class="form-group">
-            <label for="area">Your Area / Suburb</label>
-            <!-- pattern constraint prevents single-character entries -->
-            <input id="area" name="text" type="text" placeholder="e.g. KwaThema" minlength="3" pattern=".*\S.*" required>
-        </div>
-        <button class="button" type="submit">Send Booking Request via WhatsApp</button>
-    </form>
-</section>
-
-<script>
-function validateBooking(event) {
-    const areaInput = document.getElementById('area');
-    const cleanedValue = areaInput.value.trim();
-    
-    if (cleanedValue === "") {
-        alert("Please enter a valid area or suburb name before submitting.");
-        event.preventDefault();
-        return false;
-    }
-    
-    // Automatically formats the text string sent directly into the user's WhatsApp input screen
-    areaInput.value = "Hello CleanBright, I would like to book a cleaning service for my property located in: " + cleanedValue;
-    return true;
-}
-</script>
-              
-     
-
-        <section style="text-align: center; margin-bottom: 60px;">
-            <h2 style="margin-bottom: 10px; color: var(--primary);">Contact Us Directly</h2>
-            <p style="font-size: 18px; font-weight: 600;">📞 Call or WhatsApp: 082 982 7195</p>
-            <p style="color: #64748b; margin-top: 5px;">Service area: KwaThema and nearby local communities</p>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 CleanBright Cleaning. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+        /* Flawless Mobile Responsive Design Adaptations */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 16px;
+            }
+            .hero h1 { 
+                font-size: 32px; 
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .container {
+                margin: 30px auto;
+            }
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 25px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .booking-section { 
+                padding: 24px 16px; 
+            }
+            .nav-container { 
+                flex-direction: column; 
