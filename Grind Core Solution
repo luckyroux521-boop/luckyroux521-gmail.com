@@ -1,34 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIMECORE SOLUTION</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #18324a; background: #f5f9fc; }
-    header { background: #0b6e99; color: white; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-    header h1 { font-size: 1.35rem; }
-    nav a { color: white; text-decoration: none; margin-left: 15px; }
-    .hero { padding: 70px 8%; background: linear-gradient(120deg, #dff5ff, #ffffff); display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
-    .hero h2 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 18px; }
-    .hero p { margin-bottom: 25px; }
-    .button { display: inline-block; background: #f5a623; color: #142b3b; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
-    .hero-image { min-height: 280px; border-radius: 18px; background: linear-gradient(135deg, #80c9ed, #d8f4ff); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
-    section { padding: 55px 8%; }
-    section h2 { text-align: center; margin-bottom: 25px; }
-    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .card { background: white; padding: 25px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
-    .price { color: #0b6e99; font-size: 1.6rem; font-weight: bold; margin: 10px 0; }
-    form { max-width: 650px; margin: auto; background: white; padding: 28px; border-radius: 14px; box-shadow: 0 5px 18px #18324a12; }
-    label { display: block; margin-top: 14px; font-weight: bold; }
-    input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #c4d4df; border-radius: 7px; font: inherit; }
-    textarea { min-height: 100px; }
-    form .button { margin-top: 20px; width: 100%; }
-    .note { text-align: center; margin-top: 15px; color: #536b7c; font-size: .9rem; }
-    footer { background: #18324a; color: white; text-align: center; padding: 25px 8%; }
-    @media (max-width: 700px) {
-      .hero, .cards { grid-template-columns: 1fr; }
-      nav a { margin-left: 8px; font-size: .9rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanBright Solar & Window Cleaning</title>
+    <meta name="description" content="Professional Solar Panel and Window Cleaning services by CleanBright. Affordable, reliable, and high-quality local cleaning.">
+    <meta name="keywords" content="window cleaning, solar panel cleaning, cleanbright, local cleaners">
+    <style>
+        :root {
+            --primary: #0066cc;        /* Deep Trust Blue */
+            --secondary: #00cc99;      /* Solar Aqua Accent */
+            --dark: #1e293b;           /* Professional Dark Slate */
+            --light: #f8fafc;          /* Clean Soft Background */
+            --white: #ffffff;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
+            --shadow-btn: 0 4px 10px rgba(0, 66, 163, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .location-badge {
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0052a3 0%, #002244 100%);
+            color: var(--white);
+            padding: 90px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+        }
+
+        /* Main Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: var(--dark);
+            font-weight: 700;
+            position: relative;
+        }
+
+        /* Premium Service Display Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 35px 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .price-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background-color: #e0f2fe;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 15px;
+            flex-grow: 1;
+        }
+
+        /* Modern Booking Form Layout */
+        .booking-section {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 45px;
+            box-shadow: var(--shadow-md);
+            max-width: 650px;
+            margin: 0 auto 80px auto;
+            border: 1px solid var(--border);
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .booking-form label {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--dark);
+        }
+
+        .booking-form input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: var(--light);
+        }
+
+        .booking-form input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+        }
+
+        .button {
+            width: 100%;
+            background: linear-gradient(to right, var(--primary), #0052a3);
+            color: var(--white);
+            padding: 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: var(--shadow-btn);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 66, 163, 0.3);
+            background: linear-gradient(to right, #0052a3, #003366);
+        }
+
+        /* Direct Contact Section */
+        .contact-info-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 30px;
+            background-color: #f1f5f9;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-info-section h2 {
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .contact-phone {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .service-area-text {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Professional Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+            border-top: 3px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .booking-section { padding: 25px; }
+            .nav-container { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Clean<span>Bright</span></div>
+            <div class="location-badge">📍 KwaThema Area</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Spotless Windows. Efficient Solar.</h1>
+        <p>Premium local cleaning services built around reliability, top-tier quality, and affordable rates.</p>
+    </section>
+
+    <main class="container">
+        
+        <h2 class="section-title">Our Premium Services</h2>
+        
+        <div class="services-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <h3>Solar Panel Cleaning</h3>
+                <div class="price-badge">R60 per panel</div>
+                <p>Maximize your power efficiency. We remove dust, dirt, and bird drops carefully without scratching panels.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <h3>Window Cleaning</h3>
+                <div class="price-badge">Affordable Rates</div>
+                <p>Interior and exterior window cleaning that leaves your glass completely streak-free and perfectly clear.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <h3>Full General Clean</h3>
+                <div class="price-badge">Deep / Standard</div>
+                <p>Complete home, workplace, moving-related, or upholstery deep cleaning customized to fit your exact budget.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Book an Appointment</h2>
+        
+        <section class="booking-section">
+            <!-- Fixed the WhatsApp transmission architecture link -->
+            <form class="booking-form" action="https://whatsapp.com" method="GET" target="_blank">
+                <div class="form-group">
+                    <label for="area">Your Area / Suburb</label>
+                    <input id="area" name="text" type="text" placeholder="e.g. KwaThema" required>
+                </div>
+                <button class="button" type="submit">Send Booking Request via WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="contact-info-section">
+            <h2>Contact Us Directly</h2>
+Use code with caution.📞 Call or WhatsApp: 082 982 7195Service area: KwaThema and nearby local communities© 2026 CleanBright Cleaning. All rights reserved.
